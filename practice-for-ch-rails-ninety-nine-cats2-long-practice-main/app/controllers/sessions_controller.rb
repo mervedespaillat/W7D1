@@ -20,10 +20,10 @@ class SessionsController < ApplicationController
 
     end
 
-    # def destroy
-    #     logout!
+    def destroy
+        logout!
 
-    #     redirect_to new_session_url
-    # end
+        redirect_to new_session_url
+    end
 
 end
