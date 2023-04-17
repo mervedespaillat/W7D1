@@ -8,9 +8,16 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    # def password=(password)
+    #     self.password_digest = BCrypt::Password.create(password)
+    #     # debugger
+    #     @password = password
+    # end
+
     def password=(password)
-        self.password_digest = BCrypt::Password.create(password)
         @password = password
+        
+        self.password_digest = BCrypt::Password.create(password)
     end
 
     def is_password?(password)
@@ -44,4 +51,5 @@ class User < ApplicationRecord
 
     def ensure_session_token
         self.session_token ||= generate_unique_session_token
+    end
 end

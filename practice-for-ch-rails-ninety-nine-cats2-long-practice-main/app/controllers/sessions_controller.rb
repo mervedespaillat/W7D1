@@ -1,4 +1,4 @@
-class SessionsControllers < ApplicationController
+class SessionsController < ApplicationController
     def new
         @user = User.new
         render :new
@@ -11,7 +11,7 @@ class SessionsControllers < ApplicationController
         @user = User.find_by_credentials(username,password)
 
         if @user.save 
-            login!(@user)
+            # login!(@user)
             redirect_to cats_url
         else
             user = User.new(username: username)
@@ -20,10 +20,10 @@ class SessionsControllers < ApplicationController
 
     end
 
-    def destroy
-        logout!
+    # def destroy
+    #     logout!
 
-        redirect_to new_session_url
-    end
+    #     redirect_to new_session_url
+    # end
 
 end
